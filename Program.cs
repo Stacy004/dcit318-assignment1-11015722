@@ -8,7 +8,7 @@ namespace DCIT318Assignment1
         {
             while (true)
             {
-                Console.Clear(); // Clear previous screen
+                Console.Clear();
 
                 Console.WriteLine("=== DCIT 318 ASSIGNMENT MENU ===");
                 Console.WriteLine("1. Grade Calculator");
@@ -24,12 +24,10 @@ namespace DCIT318Assignment1
                         RunGradeCalculator();
                         break;
                     case "2":
-                        Console.WriteLine("\nTicket Price Calculator not yet implemented.");
-                        Console.ReadKey();
+                        RunTicketPriceCalculator();
                         break;
                     case "3":
-                        Console.WriteLine("\nTriangle Type Identifier not yet implemented.");
-                        Console.ReadKey();
+                        RunTriangleIdentifier();
                         break;
                     case "4":
                         Console.WriteLine("\nExiting program...");
@@ -71,6 +69,76 @@ namespace DCIT318Assignment1
 
             Console.WriteLine("\nPress any key to return to the menu...");
             Console.ReadKey();
+        }
+
+        static void RunTicketPriceCalculator()
+        {
+            Console.Clear();
+            Console.WriteLine("=== TICKET PRICE CALCULATOR ===");
+            Console.Write("Enter your age: ");
+
+            string input = Console.ReadLine();
+            int age;
+
+            if (int.TryParse(input, out age) && age >= 0)
+            {
+                if (age <= 12 || age >= 65)
+                    Console.WriteLine("Ticket Price: GHC7");
+                else
+                    Console.WriteLine("Ticket Price: GHC10");
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter a valid age.");
+            }
+
+            Console.WriteLine("\nPress any key to return to the menu...");
+            Console.ReadKey();
+        }
+
+        static void RunTriangleIdentifier()
+        {
+            Console.Clear();
+            Console.WriteLine("=== TRIANGLE TYPE IDENTIFIER ===");
+
+            double side1 = ReadPositiveDouble("Enter length of side 1: ");
+            double side2 = ReadPositiveDouble("Enter length of side 2: ");
+            double side3 = ReadPositiveDouble("Enter length of side 3: ");
+
+            // Check for triangle validity first
+            if (IsValidTriangle(side1, side2, side3))
+            {
+                if (side1 == side2 && side2 == side3)
+                    Console.WriteLine("Triangle Type: Equilateral");
+                else if (side1 == side2 || side1 == side3 || side2 == side3)
+                    Console.WriteLine("Triangle Type: Isosceles");
+                else
+                    Console.WriteLine("Triangle Type: Scalene");
+            }
+            else
+            {
+                Console.WriteLine("The values entered do not form a valid triangle.");
+            }
+
+            Console.WriteLine("\nPress any key to return to the menu...");
+            Console.ReadKey();
+        }
+
+        static double ReadPositiveDouble(string prompt)
+        {
+            double value;
+            while (true)
+            {
+                Console.Write(prompt);
+                if (double.TryParse(Console.ReadLine(), out value) && value > 0)
+                    return value;
+                Console.WriteLine("Please enter a valid positive number.");
+            }
+        }
+
+        static bool IsValidTriangle(double a, double b, double c)
+        {
+            return (a + b > c) && (a + c > b) && (b + c > a);
         }
     }
 }
