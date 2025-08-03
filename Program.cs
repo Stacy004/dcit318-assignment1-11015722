@@ -44,7 +44,7 @@ namespace DCIT318Assignment1
         {
             Console.Clear();
             Console.WriteLine("=== GRADE CALCULATOR ===");
-            Console.Write("Enter a numerical grade (0 - 100): ");
+            Console.Write("Enter a grade (0 - 100): ");
 
             string input = Console.ReadLine();
             int grade;
@@ -54,13 +54,13 @@ namespace DCIT318Assignment1
                 if (grade >= 90)
                     Console.WriteLine("Letter Grade: A");
                 else if (grade >= 80)
-                    Console.WriteLine("Letter Grade: B");
+                    Console.WriteLine(" Grade: B");
                 else if (grade >= 70)
-                    Console.WriteLine("Letter Grade: C");
+                    Console.WriteLine(" Grade: C");
                 else if (grade >= 60)
-                    Console.WriteLine("Letter Grade: D");
+                    Console.WriteLine(" Grade: D");
                 else
-                    Console.WriteLine("Letter Grade: F");
+                    Console.WriteLine(" Grade: F");
             }
             else
             {
