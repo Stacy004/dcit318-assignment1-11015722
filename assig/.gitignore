@@ -1,5 +1,21 @@
-.vs/
-assignment 2/
-DCIT318Assignment1_11015722/
+# Build directories
 bin/
 obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Packages
+packages/
+
+# Temporary files
+*.tmp
+*.log
+
+# Configuration files
+*.config
+
+# Environment variables
+.env
